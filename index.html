@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Catálogo de útiles escolares y artículos de oficina de Útiles Exprés.">
+
+    <title>Útiles Exprés | Catálogo</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+    <!-- ENCABEZADO -->
+    <header class="encabezado">
+
+        <a class="marca" href="#inicio" aria-label="Útiles Exprés">
+
+            <img
+                class="logo"
+                src="static/logo.jpg"
+                alt="Logo de Útiles Exprés"
+            >
+
+            <span class="nombre-marca">Útiles Exprés</span>
+
+        </a>
+
+        <nav aria-label="Navegación principal">
+            <a href="#inicio">Inicio</a>
+            <a href="#catalogo">Catálogo</a>
+
+            <a
+                class="nav-contacto"
+                href="https://wa.me/59165713521?text=Hola%2C%20quiero%20consultar%20por%20sus%20productos."
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                WhatsApp
+            </a>
+        </nav>
+
+    </header>
+
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main>
+
+        <!-- PORTADA -->
+        <section class="portada" id="inicio">
+
+            <div class="portada-contenido">
+
+                <span class="etiqueta">
+                    TODO PARA ESTUDIAR Y TRABAJAR
+                </span>
+
+                <h1>
+                    Ideas que empiezan<br>
+                    <span>con buenos útiles.</span>
+                </h1>
+
+                <p>
+                    Encuentra cuadernos, artículos de escritura,
+                    útiles escolares y productos de oficina en un solo lugar.
+                </p>
+
+                <a class="boton-principal" href="#catalogo">
+                    Explorar catálogo
+                    <span aria-hidden="true">↓</span>
+                </a>
+
+            </div>
+
+
+            <div class="portada-decoracion" aria-hidden="true">
+
+                <div class="circulo circulo-uno"></div>
+                <div class="circulo circulo-dos"></div>
+
+                <div class="tarjeta-flotante">
+                    <span>✦</span>
+
+                    <div>
+                        <strong>Tu lista, resuelta</strong>
+                        <small>Útiles para cada día</small>
+                    </div>
+                </div>
+
+                <div class="hoja-flotante">Aa</div>
+
+            </div>
+
+        </section>
+
+
+        <!-- CATÁLOGO -->
+        <section class="productos seccion" id="catalogo">
+
+            <div class="titulo-seccion">
+
+                <span class="etiqueta">
+                    NUESTRO CATÁLOGO
+                </span>
+
+                <h2>Encuentra lo que necesitas</h2>
+
+                <p>
+                    Busca un producto o selecciona una categoría
+                    para ver sus artículos.
+                </p>
+
+            </div>
+
+
+            <!-- BUSCADOR Y CATEGORÍAS -->
+            <div class="controles-catalogo">
+
+                <label class="buscador-wrap">
+
+                    <span aria-hidden="true">⌕</span>
+
+                    <input
+                        type="search"
+                        id="buscador"
+                        placeholder="Buscar un producto..."
+                        aria-label="Buscar productos"
+                    >
+
+                </label>
+
+
+                <label class="categoria-wrap">
+
+                    <span class="sr-only">
+                        Filtrar por categoría
+                    </span>
+
+                    <select id="categoria" aria-label="Filtrar por categoría">
+
+                        <option value="todos">
+                            Todas las categorías
+                        </option>
+
+                        <option value="cuadernos">
+                            Cuadernos
+                        </option>
+
+                        <option value="escritura">
+                            Escritura
+                        </option>
+
+                        <option value="escolar">
+                            Útiles escolares
+                        </option>
+
+                        <option value="oficina">
+                            Oficina
+                        </option>
+
+                    </select>
+
+                </label>
+
+            </div>
+
+
+            <!-- RESULTADOS -->
+            <div
+                class="resumen-resultados"
+                id="resumen-resultados"
+                aria-live="polite"
+            ></div>
+
+
+            <!-- PRODUCTOS GENERADOS POR JAVASCRIPT -->
+            <div
+                class="catalogo-grid"
+                id="lista-productos"
+            ></div>
+
+
+            <p class="sin-resultados" id="sin-resultados" hidden>
+                No encontramos productos con esa búsqueda.
+                Prueba con otro nombre o categoría.
+            </p>
+
+        </section>
+
+    </main>
+
+
+    <!-- PIE DE PÁGINA -->
+    <footer>
+
+        <div class="footer-contenido">
+
+            <div>
+
+                <a
+                    class="marca marca-footer"
+                    href="#inicio"
+                    aria-label="Volver al inicio"
+                >
+
+                    <img
+                        class="logo logo-footer"
+                        src="static/logo.jpeg"
+                        alt="Logo de Útiles Exprés"
+                    >
+
+                </a>
+
+                <p>
+                    Todo lo que necesitas para dar vida a tus ideas.
+                </p>
+
+            </div>
+
+
+            <div class="footer-contacto">
+
+                <strong>¿Tienes alguna consulta?</strong>
+
+                <a
+                    href="https://wa.me/59165713521?text=Hola%2C%20quiero%20hacer%20una%20consulta."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Escríbenos por WhatsApp
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="copyright">
+
+            © <span id="anio"></span>
+            Útiles Exprés. Todos los derechos reservados.
+
+        </div>
+
+    </footer>
+
+</body>
+</html>
