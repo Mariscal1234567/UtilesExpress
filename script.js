@@ -1,7 +1,7 @@
+
 // =========================================
 // 1. PRODUCTOS DEL CATÁLOGO
-// Hay 6 productos por categoría.
-// Los precios son ejemplos: cámbialos por los reales.
+// Cada producto tiene su propia imagen.
 // =========================================
 
 const productos = [
@@ -9,134 +9,157 @@ const productos = [
     {
         nombre: "Cuaderno universitario",
         categoria: "cuadernos",
-        precio: 18
+        precio: 18,
+        imagen: "static/cuaderno-universitario.jpg"
     },
     {
         nombre: "Cuaderno espiral",
         categoria: "cuadernos",
-        precio: 22
+        precio: 22,
+        imagen: "static/cuaderno-espiral.jpg"
     },
     {
         nombre: "Cuaderno empastado",
         categoria: "cuadernos",
-        precio: 25
+        precio: 25,
+        imagen: "static/cuaderno-empastado.jpg"
     },
     {
         nombre: "Cuaderno cuadriculado",
         categoria: "cuadernos",
-        precio: 16
+        precio: 16,
+        imagen: "static/cuaderno-cuadriculado.jpg"
     },
     {
         nombre: "Cuaderno de dibujo",
         categoria: "cuadernos",
-        precio: 20
+        precio: 20,
+        imagen: "static/cuaderno-dibujo.jpg"
     },
     {
         nombre: "Cuaderno pequeño",
         categoria: "cuadernos",
-        precio: 10
+        precio: 10,
+        imagen: "static/cuaderno-pequeno.jpg"
     },
 
     // ESCRITURA
     {
         nombre: "Bolígrafos azules",
         categoria: "escritura",
-        precio: 12
+        precio: 12,
+        imagen: "static/boligrafos-azules.jpg"
     },
     {
         nombre: "Lápices HB",
         categoria: "escritura",
-        precio: 8
+        precio: 8,
+        imagen: "static/lapices-hb.jpg"
     },
     {
         nombre: "Marcadores de colores",
         categoria: "escritura",
-        precio: 18
+        precio: 18,
+        imagen: "static/marcadores-colores.jpg"
     },
     {
         nombre: "Resaltadores",
         categoria: "escritura",
-        precio: 15
+        precio: 15,
+        imagen: "static/resaltadores.jpg"
     },
     {
         nombre: "Lapiceros negros",
         categoria: "escritura",
-        precio: 12
+        precio: 12,
+        imagen: "static/lapiceros-negros.jpg"
     },
     {
         nombre: "Corrector líquido",
         categoria: "escritura",
-        precio: 9
+        precio: 9,
+        imagen: "static/corrector-liquido.jpg"
     },
 
     // ÚTILES ESCOLARES
     {
         nombre: "Regla de 30 cm",
         categoria: "escolar",
-        precio: 5
+        precio: 5,
+        imagen: "static/regla-30cm.jpg"
     },
     {
         nombre: "Tijeras escolares",
         categoria: "escolar",
-        precio: 10
+        precio: 10,
+        imagen: "static/tijeras-escolares.jpg"
     },
     {
         nombre: "Pegamento en barra",
         categoria: "escolar",
-        precio: 8
+        precio: 8,
+        imagen: "static/pegamento-barra.jpg"
     },
     {
         nombre: "Lápices de colores",
         categoria: "escolar",
-        precio: 15
+        precio: 15,
+        imagen: "static/lapices-colores.jpg"
     },
     {
         nombre: "Juego de geometría",
         categoria: "escolar",
-        precio: 18
+        precio: 18,
+        imagen: "static/juego-geometria.jpg"
     },
     {
         nombre: "Goma de borrar",
         categoria: "escolar",
-        precio: 3
+        precio: 3,
+        imagen: "static/goma-borrar.jpg"
     },
 
     // OFICINA
     {
         nombre: "Carpetas para documentos",
         categoria: "oficina",
-        precio: 10
+        precio: 10,
+        imagen: "static/carpetas-documentos.jpg"
     },
     {
         nombre: "Notas adhesivas",
         categoria: "oficina",
-        precio: 9
+        precio: 9,
+        imagen: "static/notas-adhesivas.jpg"
     },
     {
         nombre: "Archivador",
         categoria: "oficina",
-        precio: 25
+        precio: 25,
+        imagen: "static/archivador.jpg"
     },
     {
         nombre: "Grapadora",
         categoria: "oficina",
-        precio: 20
+        precio: 20,
+        imagen: "static/grapadora.jpg"
     },
     {
         nombre: "Clips metálicos",
         categoria: "oficina",
-        precio: 6
+        precio: 6,
+        imagen: "static/clips-metalicos.jpg"
     },
     {
         nombre: "Cinta adhesiva",
         categoria: "oficina",
-        precio: 7
+        precio: 7,
+        imagen: "static/cinta-adhesiva.jpg"
     }
 ];
 
 // =========================================
 // 2. NÚMERO DE WHATSAPP
-// Bolivia: código de país 591.
 // =========================================
 
 const NUMERO_WHATSAPP = "59165713521";
@@ -159,7 +182,7 @@ const nombresCategorias = {
 };
 
 // =========================================
-// 4. ICONOS DECORATIVOS
+// 4. ICONOS DECORATIVOS DE RESPALDO
 // =========================================
 
 function iconoCategoria(tipo) {
@@ -181,14 +204,26 @@ function crearTarjeta(producto) {
     const articulo = document.createElement("article");
     articulo.className = "producto";
 
-    // Imagen decorativa de la categoría
+    // Contenedor de imagen
     const imagen = document.createElement("div");
     imagen.className = `producto-imagen imagen-${producto.categoria}`;
-    imagen.setAttribute("aria-hidden", "true");
 
-    const icono = document.createElement("span");
-    icono.textContent = iconoCategoria(producto.categoria);
-    imagen.appendChild(icono);
+    // Fotografía del producto
+    const foto = document.createElement("img");
+    foto.src = producto.imagen;
+    foto.alt = producto.nombre;
+    foto.loading = "lazy";
+
+    // Si no se encuentra la fotografía, mostrar un icono
+    foto.onerror = () => {
+        foto.remove();
+
+        const icono = document.createElement("span");
+        icono.textContent = iconoCategoria(producto.categoria);
+        imagen.appendChild(icono);
+    };
+
+    imagen.appendChild(foto);
 
     // Información del producto
     const info = document.createElement("div");
